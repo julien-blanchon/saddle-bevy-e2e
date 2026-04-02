@@ -1,0 +1,32 @@
+[package]
+name = "saddle-bevy-e2e"
+version = "0.1.0"
+edition = "2024"
+description = "E2E visual testing framework for Bevy — scenario DSL, screenshot capture, video recording"
+license = "MIT-0"
+readme = "README.md"
+repository = "https://github.com/julien-blanchon/saddle-bevy-e2e"
+publish = false
+
+[features]
+default = []
+json = ["dep:serde", "dep:serde_json"]
+
+[dependencies]
+# Minimal Bevy features — no rendering pipeline, just enough for ECS + state + assets.
+bevy = { version = "0.18", default-features = false, features = [
+    "bevy_state",
+    "bevy_render",
+    "bevy_window",
+    "bevy_asset",
+    "bevy_log",
+] }
+serde = { version = "1", features = ["derive"], optional = true }
+serde_json = { version = "1", optional = true }
+
+[workspace]
+
+[lints.clippy]
+too_many_arguments = "allow"
+type_complexity = "allow"
+nonstandard_macro_braces = "warn"
