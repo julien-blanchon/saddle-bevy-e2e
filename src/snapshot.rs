@@ -68,7 +68,7 @@ impl Snapshot {
     /// Convert this snapshot into a [`Scenario`] that the existing runner can execute.
     ///
     /// The generated scenario has the structure:
-    /// 1. Log: "Snapshot: <name>"
+    /// 1. Log: `Snapshot: <name>`
     /// 2. For each step: Setup → Settle → Capture (repeating)
     /// 3. Log: "Snapshot complete"
     pub fn into_scenario(self) -> Scenario {

@@ -132,7 +132,7 @@ pub fn log_resource<R: Resource + std::fmt::Debug>(label: &str) -> Action {
 
 /// Log all component type names on entities with component `C`.
 ///
-/// Shows up to [`MAX_ENTITIES_LOG`] entities with their full component lists.
+/// Shows up to 10 entities with their full component lists.
 ///
 /// Output:
 /// ```text
@@ -173,7 +173,7 @@ pub fn log_entity_components<C: Component>(label: &str) -> Action {
 
 /// Log the `Debug` representation of component `C` on all entities that have it.
 ///
-/// Shows up to [`MAX_ENTITIES_LOG`] entries.
+/// Shows up to 10 entries.
 ///
 /// Output:
 /// ```text
