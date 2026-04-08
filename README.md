@@ -131,6 +131,13 @@ app.configure_sets(Update, E2ESet.before(GameSet::Input));
 - **Bevy 0.18**
 - **ffmpeg** (optional) — Required for screenshot downscaling and video stitching. Falls back gracefully if not installed.
 
+## Testing Note
+
+This crate intentionally does **not** contain its own `examples/lab` app.
+`saddle-bevy-e2e` is the reusable framework that powers the downstream lab apps in the runtime crates, so the most meaningful E2E verification for framework changes happens through representative consumer labs rather than a self-hosted lab here.
+
+When changing capture, runner, input injection, or snapshot behavior, validate at least one representative downstream lab in addition to this crate's direct Rust-level checks and examples.
+
 ## License
 
 MIT-0 — see [LICENSE](LICENSE).
