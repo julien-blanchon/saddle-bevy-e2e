@@ -13,6 +13,7 @@ Provides a frame-by-frame scenario DSL, screenshot capture, video recording via 
 - **Deterministic timing** — Forces 60fps `ManualDuration` so frame-count-based scenarios are reproducible
 - **Conditional waits** — `WaitUntil` polls a world condition each frame (e.g. "assets loaded")
 - **Custom actions** — Arbitrary `&mut World` closures for project-specific logic
+- **Reusable helper composition** — Build crate-specific verbs like `walk_to` or `teleport_to` on top of raw actions and compose them with `.then_many()`
 
 ## Quick Start
 
@@ -88,6 +89,8 @@ cargo run --features e2e -- my_scenario
 ```
 
 Output goes to `e2e_output/<scenario_name>/` with screenshots, video, and a log file.
+
+For downstream labs, keep scenario files at the domain level. If a flow repeats or would otherwise expand into a long chain of `PressKey` / `WaitFrames` / `Custom` steps, move it into a crate-specific helper such as `walk_to`, `teleport_to`, `open_menu`, or `wait_for_landing`.
 
 ## Architecture
 
